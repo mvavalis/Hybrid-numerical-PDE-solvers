@@ -1,0 +1,33 @@
+In what follows, when we refer to a makefile, we refer to the makefile in the $PDD
+dir (i.e. the top dir of the solver).
+
+The following libraries are needed by the solver and are not distributed with it:
+  deal.II 6.1.0
+  gsl (GNU Scientific library)
+They need to be installed and some setup is required in order for the compiler to
+be able to find them.
+[Note: if you are using gcc >= 4.4 then you may need to use boost >= 1.37.]
+
+== deal.II 6.1.0:
+   - download deal.II 6.1.0
+   - unzip
+   - configure
+   - make all
+   - find the variable DEALIIdir in the makefile, and point it to the top dir of
+     the deal.II library
+       e.g. if deal.II is in directory /home/john/deal.II, set DEALIIdir like this:
+            DEALIIdir = /home/john/deal.II
+
+== gsl (GNU Scientific library):
+   - install gsl
+   - the linking to the lib is done like this: `pkg-config --libs --cflags gsl`
+     (see the makefile). if your system has pkg-config, then it will work ok, else
+     interchange "`pkg-config --libs --cflags gsl`" with the flags required by your
+     system to link to gsl.
+       e.g. in my system,
+               $ pkg-config --libs --cflags gsl
+            gives the following output:
+               -I/usr/local/include  -L/usr/local/lib -lgsl -lgslcblas -lm
+
+Then get into the pdd directory and make. The filename of the binary is main.out.
+

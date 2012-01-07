@@ -1,0 +1,10 @@
+2D (needs \omega = (0,2)x(0,2)):
+1 domain:
+  ./main.out 2D 1  2. 2.  1 1 u u  0 0  5000 1e-13 n 1000 1e-15 5
+2 domains:
+  ./main.out 2D 1  2. 2.  2 1 u u  11 0  5000 1e-13 n 1000 1e-15 5
+
+3D (needs \omega = (0,2)x(0,2)x(0,2)):
+./main.out 3D 1  2. 2. 2.  1 1 1 u u u     0  0  0 0  0 0  10000 1e-16  n 1000 1e-15 4
+
+./main.out 3D 1  2. 2. 2.  2 1 1 u u u    10 10  0 0  0 0   3000 1e-14  n 3000 1e-15 4
